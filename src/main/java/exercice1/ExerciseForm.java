@@ -1,23 +1,18 @@
 package exercice1;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class ExerciseForm {
-	private JButton unNomInteressant;
 	private JPanel panel1;
-	private JTextField textField1;
-	private JTextField textField2;
-
-	public ExerciseForm() {
-		unNomInteressant.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				textField2.setText(textField1.getText());
-			}
-		});
-	}
+	private JPanel drawingPanel;
+	private JRadioButton rectangleBtn;
+	private JRadioButton squareBtn;
+	private JRadioButton ellipsisBtn;
+	private JRadioButton circleBtn;
+	private JTextArea messageArea;
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("ExerciseForm");
@@ -25,5 +20,9 @@ public class ExerciseForm {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	private void createUIComponents() {
+		drawingPanel = new JPanel();
 	}
 }
