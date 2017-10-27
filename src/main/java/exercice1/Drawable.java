@@ -1,5 +1,7 @@
 package exercice1;
 
+import java.awt.*;
+
 public interface Drawable {
-	Point[] getVertices();
+	void draw(Graphics g);
 }
