@@ -12,15 +12,14 @@ public class ConvexPolygon implements Drawable {
 
 	@Override
 	public void draw(Graphics g) {
-		for (int i = 1; i < points.length; ++i) {
-			Point currentVertex = points[i];
-			Point previousVertex = points[i - 1];
-			drawLineBetweenVertices(previousVertex, currentVertex, g);
+		int[] xPoints = new int[points.length];
+		int[] yPoints = new int[points.length];
+		for (int i = 0; i < points.length; i++) {
+			Point point = points[i];
+			xPoints[i] = point.getX();
+			yPoints[i] = point.getY();
 		}
-
-		Point lastVertex = points[points.length - 1];
-		Point firstVertex = points[0];
-		drawLineBetweenVertices(lastVertex, firstVertex, g);
+		g.drawPolygon(xPoints, yPoints, points.length);
 	}
 
 	private void drawLineBetweenVertices(Point vertex1, Point vertex2, Graphics g) {

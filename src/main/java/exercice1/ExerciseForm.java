@@ -1,6 +1,11 @@
 package exercice1;
 
 import javax.swing.*;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class ExerciseForm {
 	private JPanel rootPanel;
@@ -12,15 +17,43 @@ public class ExerciseForm {
 	private JTextArea messageArea;
 	private JPanel controlPanel;
 
+	private RectangleFactory drawableFactory;
+	private Point firstPoint;
+
+	public ExerciseForm() {
+		rectangleBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				drawableFactory = new RectangleFactory();
+			}
+		});
+		drawingPanel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				firstPoint = e.getPoint();
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				Point secondPoint = e.getPoint();
+				drawableFactory.buildDrawable(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY());
+			}
+		});
+	}
+
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("ExerciseForm");
 		frame.setContentPane(new ExerciseForm().rootPanel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.pack();
 		frame.setVisible(true);
 	}
 
 	private void createUIComponents() {
-		drawingPanel = new SubPanel();
+		drawingPanel = new DrawingPanel();
+	}
+
+	public DrawingPanel getDrawingPanel() {
+		return (DrawingPanel) drawingPanel;
 	}
 }

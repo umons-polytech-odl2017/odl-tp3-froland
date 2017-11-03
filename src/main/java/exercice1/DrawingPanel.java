@@ -3,7 +3,7 @@ package exercice1;
 import javax.swing.*;
 import java.awt.*;
 
-class SubPanel extends JPanel {
+class DrawingPanel extends JPanel {
 	private Drawable[] drawables = new Drawable[0];
 
 	public void paintComponent(Graphics g) {
