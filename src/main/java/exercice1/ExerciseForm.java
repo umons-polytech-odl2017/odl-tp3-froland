@@ -17,7 +17,7 @@ public class ExerciseForm {
 	private JTextArea messageArea;
 	private JPanel controlPanel;
 
-	private RectangleFactory drawableFactory;
+	private RectangleFactory drawableFactory = new RectangleFactory();
 	private Point firstPoint;
 
 	public ExerciseForm() {
@@ -36,7 +36,9 @@ public class ExerciseForm {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				Point secondPoint = e.getPoint();
-				drawableFactory.buildDrawable(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY());
+				Drawable drawable = drawableFactory.buildDrawable(firstPoint.getX(), firstPoint.getY(), secondPoint.getX(), secondPoint.getY());
+				getDrawingPanel().addDrawable(drawable);
+				getDrawingPanel().repaint();
 			}
 		});
 	}

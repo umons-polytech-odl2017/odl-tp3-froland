@@ -6,7 +6,7 @@ public class Rectangle extends ConvexPolygon {
 			upperLeft,
 			new Point(upperLeft.getX(), lowerRight.getY()),
 			lowerRight,
-			new Point(lowerRight.getX(), lowerRight.getY())
+			new Point(lowerRight.getX(), upperLeft.getY())
 		});
 	}
 }

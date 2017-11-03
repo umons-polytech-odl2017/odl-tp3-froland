@@ -19,5 +19,6 @@ class DrawingPanel extends JPanel {
 		Drawable[] drawables = new Drawable[this.drawables.length + 1];
 		System.arraycopy(this.drawables, 0, drawables, 0, this.drawables.length);
 		drawables[this.drawables.length] = drawable;
+		this.drawables = drawables;
 	}
 }
