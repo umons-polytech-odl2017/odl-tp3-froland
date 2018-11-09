@@ -76,7 +76,7 @@ NOTE: Par défaut, les méthodes de ces adaptateurs ne font rien.
 Cet exercice a pour but de créer une interface graphique pour dessiner des formes géométriques (cfr code écrit lors du TP1).
 La fenêtre doit ressembler à ceci :
 
-image::shape-window.png[scaledwidth=75%]
+image::images/shape-window.png[scaledwidth=75%]
 
 Les boutons radio (`JRadioButton`) sont groupés dans un ButtonGroup pour que plusieurs boutons ne soient pas sélectionnés en même temps.
 Le panneau de gauche est créé à partir d'une nouvelle classe qui hérite de la classe `JPanel` (se trouvant dans le package `javax.swing`).
@@ -89,7 +89,7 @@ Votre code va écouter les événements `mousePressed` et `mouseReleased` p
 
 === Exercice 3
 
-image::exercise-classes.svg[scaledwidth=75%]
+image::images/exercise-classes.svg[scaledwidth=75%]
 
 Complétez la classe qui gère votre zone de dessin.
 Celle-­ci stocke les formes géométriques sous la form d'un champ de type `Drawable[]`.
